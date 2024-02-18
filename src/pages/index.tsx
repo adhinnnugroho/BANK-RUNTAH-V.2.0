@@ -2,6 +2,8 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import AppLayouts from "@/Layouts";
 import SimpleButton from "@/Components/Button/SimpleButton";
+import MenuCard from "@/Components/Card/MenuCard";
+import MobileNavigations from "@/Layouts/_mobile_navigations";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -55,38 +57,29 @@ export default function Home() {
         />
       </div>
 
-      <div className="grid grid-cols-3 gap-5 ml-2 mr-2 mt-5">
+      <div className="grid grid-cols-4 gap-5 ml-2 mr-2 mt-5">
         <div className="col-span-1">
-          <div className="border border-gray-500 text-center">
+          <MenuCard icons="dashboard">
             All
-          </div>
+          </MenuCard>
         </div>
         <div className="col-span-1">
-          <div className="border border-gray-500 text-center">
-            All
-          </div>
+          <MenuCard icons="devices">
+            Elektronik
+          </MenuCard>
         </div>
         <div className="col-span-1">
-          <div className="border border-gray-500 text-center">
-            All
-          </div>
+          <MenuCard icons="news">
+            Koran
+          </MenuCard>
         </div>
         <div className="col-span-1">
-          <div className="border border-gray-500 text-center">
-            All
-          </div>
-        </div>
-        <div className="col-span-1">
-          <div className="border border-gray-500 text-center">
-            All
-          </div>
-        </div>
-        <div className="col-span-1">
-          <div className="border border-gray-500 text-center">
-            All
-          </div>
+          <MenuCard icons="book-open">
+            Buku
+          </MenuCard>
         </div>
       </div>
+      <MobileNavigations />
     </AppLayouts>
   );
 }
