@@ -4,6 +4,9 @@ import AppLayouts from "@/Layouts";
 import SimpleButton from "@/Components/Button/SimpleButton";
 import MenuCard from "@/Components/Card/MenuCard";
 import MobileNavigations from "@/Layouts/_mobile_navigations";
+import { useEffect, useState } from "react";
+import trashService from "@/Services/Trash";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,7 +14,25 @@ const formattedNumber = (number: any) => {
   return number.toLocaleString("en-US");
 };
 
-export default function Home() {
+export default function Home() {  
+    const [users, setUsers] = useState([]);
+    const [UserData, setUserData] = useState([]);
+
+    useEffect(() => {
+        setUserData(users);
+    }, [users])
+
+
+    useEffect(() => {
+        const getAllUsers = async () => {
+            const { data } = await trashService.getAllTrashMenu();
+            console.log(data);
+            setUsers(data.data);
+        }
+
+        getAllUsers();
+    }, [])
+
   return (
     <AppLayouts>
       <div className="bg-gray-300 ml-2 mr-2 -mt-5 rounded-lg">
@@ -58,12 +79,18 @@ export default function Home() {
       </div>
 
       <div className="grid grid-cols-4 gap-5 ml-2 mr-2 mt-5">
-        <div className="col-span-1">
-          <MenuCard icons="dashboard">
-            All
-          </MenuCard>
-        </div>
-        <div className="col-span-1">
+        {UserData.map((user: any, index: number) => {
+          return (
+            <>
+            <div className="col-span-1">
+              <MenuCard icons={user.icons}>
+                {user.name}
+              </MenuCard>
+            </div>
+            </>
+          )
+        })}
+        {/* <div className="col-span-1">
           <MenuCard icons="devices">
             Elektronik
           </MenuCard>
@@ -77,7 +104,7 @@ export default function Home() {
           <MenuCard icons="book-open">
             Buku
           </MenuCard>
-        </div>
+        </div> */}
       </div>
       <MobileNavigations />
     </AppLayouts>
