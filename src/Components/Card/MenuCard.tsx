@@ -1,6 +1,6 @@
 type PropsType = {
     'icons'?: string,
-    'children': React.ReactNode
+    'name'?: string
 }
 
 const MenuCard = (prop: PropsType) => {
@@ -10,7 +10,7 @@ const MenuCard = (prop: PropsType) => {
                 <i className={`bx bxs-${prop.icons} block text-3xl`}></i>
             </div>
             <h5 className="text-center">
-                {prop.children}
+                {prop.name}
             </h5>
         </div>
     )
