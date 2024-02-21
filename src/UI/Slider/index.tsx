@@ -1,14 +1,32 @@
 import Image from "next/image";
+import MenuCard from "@/Components/Card/MenuCard";
+import { useEffect, useState } from "react";
 const SlidePromo = () => {
+    const [imgSlide, setimgSlide] = useState([]);
+
+    useEffect(() => {
+        fetch('/api/Slider/slide')
+            .then(response => response.json())
+            .then(data => setimgSlide(data))
+            .catch(error => console.error('Error fetching data:', error));
+    })
+
     return (
         <div className="ml-2 mr-2 mt-5 overflow-y-auto flex">
-            <Image
-                src="/assets/img/slider/1.png"
-                width={506}
-                height={106}
-                alt="Picture of the author"
-            />
-            <Image
+            {imgSlide && imgSlide.map((slide: any, index: number) => {
+                return (
+                    <>
+                        <Image
+                            src={slide.img_url}
+                            width={506}
+                            height={106}
+                            alt={slide.name}
+                        />
+                    </>
+                )
+            })}
+
+            {/* <Image
                 src="/assets/img/slider/2.png"
                 width={506}
                 height={506}
@@ -19,7 +37,7 @@ const SlidePromo = () => {
                 width={506}
                 height={506}
                 alt="Picture of the author"
-            />
+            /> */}
         </div>
     )
 }

@@ -20,3 +20,12 @@ model list_menu {
     created_at DateTime 
     updated_at DateTime 
 }
+
+model img_slide {
+  id Int @id @default(autoincrement())
+  img_url String?
+  name String?
+  link String?
+  created_at DateTime 
+  updated_at DateTime 
+}
