@@ -1,5 +1,6 @@
 import React from "react";
 import Navigations from "./_navigations"
+import MobileNavigations from "./_mobile_navigations";
 
 
 type PropsType = {
@@ -12,6 +13,7 @@ const AppLayouts = (prop: PropsType) => {
         <div>
             <Navigations />
             {children}
+            <MobileNavigations />
         </div>
     )
 }
