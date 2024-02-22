@@ -1,5 +1,4 @@
 import MenuCard from "@/Components/Card/MenuCard";
-import prisma from "../../../prisma/client";
 import { useEffect, useState } from "react";
 
 

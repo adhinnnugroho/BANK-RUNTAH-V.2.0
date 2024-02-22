@@ -29,3 +29,12 @@ model img_slide {
   created_at DateTime 
   updated_at DateTime 
 }
+
+model list_sampah {
+    id Int @id @default(autoincrement())
+    img_url String?
+    name_trash String?
+    runtah_coin String?
+    created_at DateTime 
+    updated_at DateTime 
+}
