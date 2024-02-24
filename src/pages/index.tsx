@@ -11,6 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
+    <>
     <AppLayouts>
       <RuntahCoin />
       <SlidePromo />
@@ -18,5 +19,6 @@ export default function Home() {
 
       <ListTrash />
     </AppLayouts>
+    </>
   );
 }
