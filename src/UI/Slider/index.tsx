@@ -1,14 +1,24 @@
 import Image from "next/image";
 import MenuCard from "@/Components/Card/MenuCard";
 import { useEffect, useState } from "react";
+import slideService from "@/Services/Slider";
 const SlidePromo = () => {
     const [imgSlide, setimgSlide] = useState([]);
 
+    // useEffect(() => {
+    //     fetch('/api/Slider/slide')
+    //         .then(response => response.json())
+    //         .then(data => setimgSlide(data))
+    //         .catch(error => console.error('Error fetching data:', error));
+    // })
+
     useEffect(() => {
-        fetch('/api/Slider/slide')
-            .then(response => response.json())
-            .then(data => setimgSlide(data))
-            .catch(error => console.error('Error fetching data:', error));
+        const getAllSliderImage = async () => {
+            const response = await slideService.getAllSlideImage();
+            setimgSlide(response.data.data);
+        }
+
+        getAllSliderImage();
     })
 
     return (

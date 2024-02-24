@@ -1,4 +1,5 @@
 import MenuCard from "@/Components/Card/MenuCard";
+import trashService from "@/Services/Trash";
 import { useEffect, useState } from "react";
 
 
@@ -6,10 +7,12 @@ const ListMenu = () => {
     const [list_menu, setListMenu] = useState([]);
 
     useEffect(() => {
-        fetch('/api/Menu')
-            .then(response => response.json())
-            .then(data => setListMenu(data))
-            .catch(error => console.error('Error fetching data:', error));
+        const getTrashMenu = async () => {
+            const response = await trashService.getAllTrashMenu();
+            setListMenu(response.data.data);
+        }
+
+        getTrashMenu();
     })
 
     return (

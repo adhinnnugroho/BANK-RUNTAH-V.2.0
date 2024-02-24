@@ -14,7 +14,7 @@ export default function Home() {
     <>
     <AppLayouts>
       <RuntahCoin />
-      <SlidePromo />
+      {/* <SlidePromo /> */}
       <ListMenu />
 
       <ListTrash />
