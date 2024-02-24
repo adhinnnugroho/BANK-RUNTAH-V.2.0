@@ -14,7 +14,7 @@ const Navigations = () => {
                 />
 
                 <div className="float-right -mt-10">
-                    <SimpleButton type="button" className="-mt-10 mr-2">
+                    <SimpleButton type="button" className="-mt-10 mr-2" link={"/Auth/login"}>
                         Login
                     </SimpleButton>
                 </div>

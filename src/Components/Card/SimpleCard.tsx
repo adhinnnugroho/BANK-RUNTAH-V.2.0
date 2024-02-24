@@ -15,3 +15,5 @@ const SimpleCard = (prop: PropsType) => {
         </div>
     )
 }
+
+export default SimpleCard

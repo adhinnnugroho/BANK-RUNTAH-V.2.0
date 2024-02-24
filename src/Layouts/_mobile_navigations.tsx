@@ -14,7 +14,7 @@ const MobileNavigations = () => {
                         </div>
                     </div>
                     <div className="col-span-1 text-center">
-                        <NavCard icon="search-alt-2" status_link={route.pathname === "/cari"} link="/cari" />
+                        <NavCard icon="search-alt-2" status_link={route.pathname === "/cari"}  />
                     </div>
                     <div className="col-span-1 text-center">
                         <NavCard icon="bank" status_link={route.pathname === "/bank"} link="/bank" />
