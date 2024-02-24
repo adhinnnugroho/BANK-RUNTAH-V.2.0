@@ -5,19 +5,19 @@ import SimpleInput from "@/Components/Input/simpleInput";
 import Image from "next/image";
 
 
-const Login = () => {
+const Login =  () => {
     return (
         <SimpleCard>
-
             <div className="flex mb-10 mt-10">
                 <Image
                     src="/assets/img/logo/logo.png"
                     width={56}
                     height={56}
                     alt="Picture of the author"
+                     layout="fixed"
                 />
                 <div className="font-semibold text-2xl ml-2">
-                    Selamat Datang <br /> <span className="text-green-600">di Bank Runtah</span>
+                   Selamat Datang <br /> <div className="text-green-600">di Bank Runtah</div>
                 </div>
             </div>
 
