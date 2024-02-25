@@ -38,3 +38,25 @@ model list_sampah {
     created_at DateTime 
     updated_at DateTime 
 }
+
+model Account {
+  id Int @id @default(autoincrement())
+  id_address Int?
+  name String?
+  username String?
+  email String?
+  password String?
+  avatar String?
+  telp String?
+  tanggal_lahir DateTime?
+  passwordAttempts Int @default(0)
+  statusAccount StatusAccount @default(Active)
+  created_at DateTime 
+  updated_at DateTime 
+}
+
+
+enum StatusAccount {
+  Active
+  Deactive
+}
