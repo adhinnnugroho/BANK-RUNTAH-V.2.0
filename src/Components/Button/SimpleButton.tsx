@@ -12,13 +12,23 @@ type PropsType = {
 const SimpleButton = (prop: PropsType) => {
     const { type, children, bg_color, className, link } = prop
     const bgcolor = bg_color ?? "bg-blue-500"
+
+
+    if (type === "submit") {
+        return (
+            <button type={type} className={`text-white font-medium py-2 px-4 rounded-lg ${bgcolor} ${className}`}>
+                {children}
+            </button>
+        )
+    }
     return (
-        <Link href={link ? link.toString() : '/'} >
+        <Link href={link ? link.toString() : ''} >
             <button type={type} className={`text-white font-medium py-2 px-4 rounded-lg ${bgcolor} ${className}`}>
                 {children}
             </button>
         </Link>
     )
+
 }
 
 export default SimpleButton;
