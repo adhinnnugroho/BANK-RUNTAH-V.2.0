@@ -1,15 +1,16 @@
-import { NextAuthOptions } from "next-auth";
-import CredentialsProvider  from "next-auth/providers/credentials";
-import GoogleProvider from "next-auth/providers/google";
+import { SignIn, LoginWithGoogle } from "@/Services/auth/services";
 import { compare } from "bcrypt";
-import { LoginWithGoogle, SignIn } from "@/Services/Auth/services";
+import GoogleProvider from "next-auth/providers/google";
+import { NextAuthOptions } from "next-auth";
+import NextAuth from "next-auth/next";
+import CredentialsProvider  from "next-auth/providers/credentials";
 
-const AuthOptions: NextAuthOptions = {
-    session: {
+const authOptions: NextAuthOptions = {
+    session:{
         strategy: "jwt",
     },
     secret: process.env.NEXTAUTH_SECRET,
-    providers: [
+    providers:[
         CredentialsProvider({
             type: "credentials",
             name: "Credentials",
@@ -21,49 +22,48 @@ const AuthOptions: NextAuthOptions = {
                 const {email, password} = credentials as {
                     email: string; 
                     password: string;
-                };
-
+                }
+                
                 const user: any = await SignIn(email);
                 if(user){
                     const confirmPasword = await compare(password, user.password);
+
                     if (confirmPasword) {
                         return user;
                     }
+
                     return null;
                 }else{
                     return null
                 }
             }
-            
+
+
         }),
         GoogleProvider({
             clientId: process.env.GOOGLE_OAUTH_CLIENT_ID || '',
             clientSecret: process.env.GOOGLE_OAUTH_CLIENT_SECRET || '',
         })
     ],
-      callbacks: {
+    callbacks: {
         async jwt({token, account, profile, user}: any) {
             if(account?.provider === "credentials"){
                 token.email = user.email;
-                token.fullname = user.fullname;
-                token.phone = user.phone;
-                token.role = user.role;
             }
 
             if(account?.provider === "google"){
                 const data = {
-                    fullname: user.name,
+                    name: user.name,
                     email: user.email,
+                    username: "test@user",
                     type: 'google'
                 }
 
 
-                await LoginWithGoogle(
-                    data,
-                    (data: any) => {
+                await LoginWithGoogle(data, (data: any) => {
                         token.email = data.email,
-                        token.fullname = data.fullname,
-                        token.role = data.role
+                        token.name = data.fullname,
+                        token.username  = data.username
                     }
                 )
             }
@@ -75,15 +75,6 @@ const AuthOptions: NextAuthOptions = {
             if("email" in token){
                 session.user.email = token.email;
             }
-            if("fullname" in token){
-                session.user.fullname = token.fullname;
-            }
-            if("phone" in token){
-                session.user.phone = token.phone;
-            }
-            if("role" in token){
-                session.user.role = token.role;
-            }
 
             return session;
         }
@@ -91,4 +82,7 @@ const AuthOptions: NextAuthOptions = {
     pages: {
         signIn: "/auth/login"
     }
-};
+
+}
+
+export default NextAuth(authOptions);

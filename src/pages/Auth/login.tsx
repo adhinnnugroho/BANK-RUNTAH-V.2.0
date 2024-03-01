@@ -54,7 +54,7 @@ const Login = () => {
                     <div className="mt-2 ml-2 mr-2">Or</div>
                     <div className="border border-gray-600 mb-5 mt-5  w-[45%]  float-end"></div>
                 </div>
-                <BorderButton icons="google">
+                <BorderButton type="button" icons="google" onClick={() => signIn('google', {callbackUrl, redirect: false})}>
                     Login with Google
                 </BorderButton>
             </form>

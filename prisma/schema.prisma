@@ -51,6 +51,8 @@ model Account {
   tanggal_lahir DateTime?
   passwordAttempts Int @default(0)
   statusAccount StatusAccount @default(Active)
+  Role RoleAccount @default(User)
+  type String?
   created_at DateTime 
   updated_at DateTime 
 }
@@ -59,4 +61,10 @@ model Account {
 enum StatusAccount {
   Active
   Deactive
+}
+
+enum RoleAccount {
+  User
+  Driver
+  Admin
 }

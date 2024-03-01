@@ -20,7 +20,7 @@ export async function LoginWithGoogle(
         email: string, 
         role?: string,
         created_at?: Date,
-        update_at?: Date,
+        updated_at?: Date,
         password?: string
     }, 
     callback: Function
@@ -32,16 +32,13 @@ export async function LoginWithGoogle(
     if (user.length > 0) {
         callback(user[0]);
     }else{
-        data.role = 'member';
         data.created_at = new Date();
-        data.update_at = new Date();
+        data.updated_at = new Date();
+
         data.password = '';
-        await prisma.account.create({
-            data: {
-                'username': 'adhis',
-                'email': data.email,
-                'password': data.password,
-            }
+        
+        await addData('account', data, (data: any) => {
+            callback(data);
         })
     }
 }
