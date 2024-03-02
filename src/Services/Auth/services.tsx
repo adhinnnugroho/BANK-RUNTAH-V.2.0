@@ -1,5 +1,6 @@
 import { addData } from "@/Lib/Prisma/service";
-import prisma from "../../../prisma/client";
+import prisma from "@/Lib/Prisma/Client";
+
 
 export async function SignIn(email: string){
     const data = await await prisma.account.findMany({
