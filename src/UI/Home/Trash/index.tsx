@@ -10,6 +10,22 @@ const ListTrash = () => {
                 </div>
             </div>
 
+            <div className="bg-gray-200 mt-5 p-5 rounded-lg ml-2 mr-2">
+                Testing sampah
+            </div>
+
+            <div className="bg-gray-200 mt-5 p-5 rounded-lg ml-2 mr-2">
+                Testing sampah
+            </div>
+
+            <div className="bg-gray-200 mt-5 p-5 rounded-lg ml-2 mr-2">
+                Testing sampah
+            </div>
+
+            <div className="bg-gray-200 mt-5 p-5 rounded-lg ml-2 mr-2">
+                Testing sampah
+            </div>
+
             
         </div>
 

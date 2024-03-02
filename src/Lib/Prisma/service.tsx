@@ -6,3 +6,11 @@ export async function addData(collectionsName: any, userData: any, callback: Fun
         data: userData
     })
 }
+
+export async function retriveDataByColumn(collectionsName: any, column: any, value: any) {
+    return await prisma[collectionsName].findMany({
+        where: {
+            [column]: value
+        }
+    })
+}

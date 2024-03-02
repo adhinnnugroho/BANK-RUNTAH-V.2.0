@@ -23,11 +23,11 @@ const Login = () => {
             password: form.password.value,
             callbackUrl: callbackUrl
         })
-        alert(res);
-        // if (!res?.error) {
-        //     alert("e");
-        //     router.push('/profile')
-        // }
+
+        if (!res?.error) {
+            alert("e");
+            router.push('/profile')
+        }
     }
 
     return (
@@ -49,12 +49,13 @@ const Login = () => {
                 <SimpleInput type="text" name="email" label="Email" placeholder="mail@runtah.com" />
                 <SimpleInput type="password" name="password" label="Password" placeholder="****" />
                 <SimpleButton type="submit" className="w-full" bg_color="bg-green-500">Login</SimpleButton>
-                <div className="flex">
-                    <div className="border border-gray-600 mb-5 mt-5 w-[45%]"></div>
-                    <div className="mt-2 ml-2 mr-2">Or</div>
-                    <div className="border border-gray-600 mb-5 mt-5  w-[45%]  float-end"></div>
+                <div className="flex mt-2 mb-2">
+                    <div className="border border-gray-600 mb-5 mt-5 w-[26%]"></div>
+                    <div className="mt-2 ml-2 mr-2">Atau Masuk Dengan</div>
+                    <div className="border border-gray-600 mb-5 mt-5  w-[26%]  float-end"></div>
                 </div>
-                <BorderButton type="button" icons="google" onClick={() => signIn('google', {callbackUrl, redirect: false})}>
+                <BorderButton type="button" icons="google" className="w-full mb-5"
+                    onClick={() => signIn('google', {callbackUrl, redirect: false})}>
                     Login with Google
                 </BorderButton>
             </form>

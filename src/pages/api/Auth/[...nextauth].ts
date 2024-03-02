@@ -4,6 +4,8 @@ import GoogleProvider from "next-auth/providers/google";
 import { NextAuthOptions } from "next-auth";
 import NextAuth from "next-auth/next";
 import CredentialsProvider  from "next-auth/providers/credentials";
+import prisma from "@/Lib/Prisma/Client";
+import { retriveDataByColumn } from "@/Lib/Prisma/service";
 
 const authOptions: NextAuthOptions = {
     session:{
@@ -55,7 +57,7 @@ const authOptions: NextAuthOptions = {
                 const data = {
                     name: user.name,
                     email: user.email,
-                    username: "test@user",
+                    username: generateRandomUsername(),
                     type: 'google'
                 }
 
@@ -73,7 +75,8 @@ const authOptions: NextAuthOptions = {
 
         async session({session, token}: any) {
             if("email" in token){
-                session.user.email = token.email;
+                const DataUser = await retriveDataByColumn("account", "email", token.email);
+                session.user = DataUser;
             }
 
             return session;
@@ -86,3 +89,8 @@ const authOptions: NextAuthOptions = {
 }
 
 export default NextAuth(authOptions);
+
+function generateRandomUsername() {
+    // Logic to generate a random username, e.g., concatenating random characters or numbers
+    return "user" + Math.floor(Math.random() * 10000);
+}
