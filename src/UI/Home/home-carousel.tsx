@@ -1,12 +1,12 @@
 import Image from "next/image";
-import MenuCard from "@/Components/Card/MenuCard";
 import { useEffect, useState } from "react";
-import slideService from "@/Services/Slider";
-const SlidePromo = () => {
+import HomeServices from "@/Services/Home";
+
+const HomeCarousel = () => {
     const [imgSlide, setimgSlide] = useState([]);
     useEffect(() => {
         const getAllImageSlide = async () => {
-            const response = await slideService.getAllSlideImage();
+            const response = await HomeServices.getAllSlideImage();
             setimgSlide(response.data.data);
         }
 
@@ -27,21 +27,8 @@ const SlidePromo = () => {
                     </>
                 )
             })}
-
-            {/* <Image
-                src="/assets/img/slider/2.png"
-                width={506}
-                height={506}
-                alt="Picture of the author"
-            />
-            <Image
-                src="/assets/img/slider/3.png"
-                width={506}
-                height={506}
-                alt="Picture of the author"
-            /> */}
         </div>
     )
 }
 
-export default SlidePromo;
+export default HomeCarousel;

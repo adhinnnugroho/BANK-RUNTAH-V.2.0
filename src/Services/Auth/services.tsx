@@ -1,8 +1,9 @@
 import { addData } from "@/Lib/Prisma/service";
 import prisma from "@/Lib/Prisma/Client";
+import { getSession } from "next-auth/react";
 
 
-export async function SignIn(email: string){
+export async function SignIn(email: string) {
     const data = await await prisma.account.findMany({
         where: {
             email: email
@@ -11,35 +12,54 @@ export async function SignIn(email: string){
 
     if (data) {
         return data[0];
-    }else{
+    } else {
         return null;
     }
 }
 
 export async function LoginWithGoogle(
     data: {
-        email: string, 
+        email: string,
         role?: string,
         created_at?: Date,
         updated_at?: Date,
         password?: string
-    }, 
+    },
     callback: Function
-){
+) {
     const user = await await prisma.account.findMany({
-        where: {email: data.email},
+        where: { email: data.email },
     })
 
     if (user.length > 0) {
         callback(user[0]);
-    }else{
+    } else {
         data.created_at = new Date();
         data.updated_at = new Date();
 
         data.password = '';
-        
+
         await addData('account', data, (data: any) => {
             callback(data);
         })
     }
+}
+
+export async function getServerSideProps(context: any) {
+    const session = await getSession(context);
+
+    if (!session) {
+        return {
+            redirect: {
+                destination: '',
+                permanent: false,
+            },
+        };
+    }
+
+    return {
+        props: {
+            session,
+        },
+    };
 }

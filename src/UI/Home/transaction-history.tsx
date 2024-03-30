@@ -1,4 +1,4 @@
-const ListTrash = () => {
+const TransactionHistory = () => {
     return (
         <div className="">
             <div className="grid grid-cols-2 gap-5">
@@ -32,4 +32,4 @@ const ListTrash = () => {
     )
 }
 
-export default ListTrash
+export default TransactionHistory

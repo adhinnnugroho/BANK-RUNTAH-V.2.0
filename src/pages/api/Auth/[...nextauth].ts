@@ -91,6 +91,5 @@ const authOptions: NextAuthOptions = {
 export default NextAuth(authOptions);
 
 function generateRandomUsername() {
-    // Logic to generate a random username, e.g., concatenating random characters or numbers
     return "user" + Math.floor(Math.random() * 10000);
 }

@@ -4,6 +4,7 @@ import SimpleButton from "@/Components/Button/SimpleButton";
 const formattedNumber = (number: any) => {
     return number.toLocaleString("en-US");
 };
+
 const RuntahCoin = () => {
     return (
         <div className="bg-gray-300 ml-2 mr-2 -mt-5 rounded-lg">

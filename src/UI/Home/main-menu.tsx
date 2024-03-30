@@ -1,14 +1,14 @@
 import MenuCard from "@/Components/Card/MenuCard";
-import trashService from "@/Services/Trash";
+import HomeServices from "@/Services/Home";
 import { useEffect, useState } from "react";
 
 
-const ListMenu = () => {
+const MainMenu = () => {
     const [list_menu, setListMenu] = useState([]);
 
     useEffect(() => {
         const getTrashMenu = async () => {
-            const response = await trashService.getAllTrashMenu();
+            const response = await HomeServices.getAllTrashMenu();
             setListMenu(response.data.data);
         }
 
@@ -28,4 +28,4 @@ const ListMenu = () => {
     );
 };
 
-export default ListMenu;
+export default MainMenu;
