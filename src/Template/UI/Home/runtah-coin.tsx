@@ -1,4 +1,4 @@
-import SimpleButton from "@/Components/Button/SimpleButton";
+import SimpleButton from "@/Template/Components/Button/SimpleButton";
 
 
 const formattedNumber = (number: any) => {

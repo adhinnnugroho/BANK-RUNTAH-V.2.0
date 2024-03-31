@@ -1,11 +1,10 @@
-import { SignIn, LoginWithGoogle } from "@/Services/auth/services";
+import { SignIn, LoginWithGoogle } from "@/Core/Services/auth/services";
 import { compare } from "bcrypt";
 import GoogleProvider from "next-auth/providers/google";
 import { NextAuthOptions } from "next-auth";
 import NextAuth from "next-auth/next";
 import CredentialsProvider  from "next-auth/providers/credentials";
-import prisma from "@/Lib/Prisma/Client";
-import { retriveDataByColumn } from "@/Lib/Prisma/service";
+import { retriveDataByColumn } from "@/Core/Lib/Prisma/service";
 
 const authOptions: NextAuthOptions = {
     session:{
@@ -27,9 +26,9 @@ const authOptions: NextAuthOptions = {
                 }
                 
                 const user: any = await SignIn(email);
+
                 if(user){
                     const confirmPasword = await compare(password, user.password);
-
                     if (confirmPasword) {
                         return user;
                     }
@@ -48,7 +47,7 @@ const authOptions: NextAuthOptions = {
         })
     ],
     callbacks: {
-        async jwt({token, account, profile, user}: any) {
+        async jwt({token, account, user}: any) {
             if(account?.provider === "credentials"){
                 token.email = user.email;
             }
@@ -58,9 +57,9 @@ const authOptions: NextAuthOptions = {
                     name: user.name,
                     email: user.email,
                     username: generateRandomUsername(),
-                    type: 'google'
+                    type: 'google',
+                    avatar: user.avatar
                 }
-
 
                 await LoginWithGoogle(data, (data: any) => {
                         token.email = data.email,

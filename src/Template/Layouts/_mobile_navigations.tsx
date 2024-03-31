@@ -1,4 +1,4 @@
-import NavCard from "@/Components/Card/NavCard";
+import NavCard from "@/Template/Components/Card/NavCard";
 import Link from "next/link";
 import { useRouter } from "next/router";
 

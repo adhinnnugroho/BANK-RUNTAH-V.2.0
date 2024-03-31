@@ -1,4 +1,4 @@
-import AppLayouts from "@/Layouts"
+import AppLayouts from "@/Template/Layouts"
 
 const UserProfile = () => {
     return (

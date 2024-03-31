@@ -1,13 +1,11 @@
-import BorderButton from "@/Components/Button/BorderButton";
-import SimpleButton from "@/Components/Button/SimpleButton";
-import SimpleCard from "@/Components/Card/SimpleCard";
-import SimpleInput from "@/Components/Input/simpleInput";
+import BorderButton from "@/Template/Components/Button/BorderButton";
+import SimpleButton from "@/Template/Components/Button/SimpleButton";
+import SimpleCard from "@/Template/Components/Card/SimpleCard";
+import SimpleInput from "@/Template/Components/Input/simpleInput";
 import Image from "next/image";
 import { useRouter } from 'next/router'
 import { FormEvent } from 'react'
 import { signIn } from "next-auth/react";
-import withAuthMiddleware from "@/Middleware/withAuth";
-
 
 
 

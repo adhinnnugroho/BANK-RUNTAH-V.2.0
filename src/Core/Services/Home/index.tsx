@@ -1,4 +1,4 @@
-import instance from "@/Lib/axios/instance";
+import instance from "@/Core/Lib/axios/instance";
 
 
 const HomeServices = {

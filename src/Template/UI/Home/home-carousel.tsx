@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import HomeServices from "@/Services/Home";
+import HomeServices from "@/Core/Services/Home";
 
 const HomeCarousel = () => {
     const [imgSlide, setimgSlide] = useState([]);

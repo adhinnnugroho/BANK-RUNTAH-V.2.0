@@ -1,4 +1,4 @@
-import prisma from "@/Lib/Prisma/Client";
+import prisma from "@/Core/Lib/Prisma/Client";
 
 
 export async function addData(collectionsName: any, userData: any, callback: Function) {

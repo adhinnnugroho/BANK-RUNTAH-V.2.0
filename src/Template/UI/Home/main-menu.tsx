@@ -1,5 +1,5 @@
-import MenuCard from "@/Components/Card/MenuCard";
-import HomeServices from "@/Services/Home";
+import MenuCard from "@/Template/Components/Card/MenuCard";
+import HomeServices from "@/Core/Services/Home";
 import { useEffect, useState } from "react";
 
 
