@@ -5,15 +5,15 @@ import { useSession } from "next-auth/react";
 
 const Navigations = () => {
     const { data: session } = useSession();
-
+    const GetDataUser = session?.user[0];
     return (
-        <nav className="bg-gray-800 h-28">
+        <nav className="bg-gray-800 h-32">
             <div className="mx-auto max-w-7xl px-2 py-2 sm:px-6 lg:px-8">
                 <Image
                     src={RuntahLogo}
                     width={56}
                     height={56}
-                    alt="Picture of the author"
+                    alt=""
                 />
 
                 <div className="float-right -mt-10">
@@ -22,7 +22,9 @@ const Navigations = () => {
                             Login
                         </SimpleButton>
                     ) : (
-                        'test'
+                        <h5 className="text-white">
+                            {GetDataUser?.name}
+                        </h5>
                     )}
                 </div>
             </div>
