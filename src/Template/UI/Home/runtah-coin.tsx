@@ -7,7 +7,7 @@ const formattedNumber = (number: any) => {
 
 const RuntahCoin = () => {
     return (
-        <div className="bg-gray-300 ml-5 mr-5 -mt-10 rounded-lg">
+        <div className="bg-gray-300 ml-3 mr-3 -mt-10 rounded-lg">
             <div className="grid grid-cols-3">
                 <div className="col-span-2">
                     <h5 className="ml-4 font-semibold pt-1 text-lg">
