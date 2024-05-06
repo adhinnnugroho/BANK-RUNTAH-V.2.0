@@ -19,13 +19,13 @@ const HomeCarousel = () => {
 
 
     return (
-        <div className="ml-2 mr-2 mt-5  overflow-y-auto flex">
+        <div className="ml-2 mr-2 mt-5">
             <ImageOwlCarousel>
                 {carouselImage && carouselImage.map((slide: any, index: number) => {
                     return (
                         <div key={index} className="lg:ml-2 lg:w-auto">
-                            <div className="item ">
-                                <Image
+                            <div className="item">
+                                <Image className='rounded-lg'
                                     src={slide.img_url}
                                     width={506}
                                     height={106}

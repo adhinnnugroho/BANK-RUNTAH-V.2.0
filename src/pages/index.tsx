@@ -3,7 +3,8 @@ import AppLayouts from "@/Template/Layouts";
 import MainMenu from "@/Template/UI/Home/main-menu";
 import RuntahCoin from "@/Template/UI/Home/runtah-coin";
 import HomeCarousel from "@/Template/UI/Home/home-carousel";
-import TransactionHistory from "@/Template/UI/Home/transaction-history";
+import ListTrash from "@/Template/UI/Home/list-trash";
+// import TransactionHistory from "@/Template/UI/Home/transaction-history";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,13 +13,16 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   return (
     <>
-    <AppLayouts>
-      <RuntahCoin />
-      <HomeCarousel />
-      <MainMenu />
+      <AppLayouts>
+        <RuntahCoin />
+        <MainMenu />
 
-      <TransactionHistory />
-    </AppLayouts>
+        <ListTrash />
+
+        <div className="mb-20">
+          <HomeCarousel />
+        </div>
+      </AppLayouts>
     </>
   );
 }

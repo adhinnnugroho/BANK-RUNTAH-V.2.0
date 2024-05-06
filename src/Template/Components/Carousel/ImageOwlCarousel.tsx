@@ -3,23 +3,16 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import dynamic from 'next/dynamic';
 
 
-declare global {
-    interface Window {
-        $: any;
-        jQuery: any;
-    }
-}
-
-if (typeof window !== 'undefined') {
-    window.$ = window.jQuery = require('jquery');
-}
 
 type PropsType = {
-    children: React.ReactNode
+    'children': React.ReactNode,
+    'autoPlay'?: boolean,
+    'loop'?: boolean | undefined
 }
 
 const ImageOwlCarousel = (prop: PropsType) => {
-    const { children } = prop
+    const { children, autoPlay = false, loop = false } = prop
+
     const OwlCarousel = dynamic(() => import('react-owl-carousel'), {
         ssr: false,
     });
@@ -29,7 +22,8 @@ const ImageOwlCarousel = (prop: PropsType) => {
         responsiveClass: true,
         nav: false,
         dots: false,
-        autoplay: true,
+        loop: loop,
+        autoplay: autoPlay,
         smartSpeed: 1000,
         responsive: {
             0: {
@@ -49,9 +43,10 @@ const ImageOwlCarousel = (prop: PropsType) => {
             },
         },
     };
+
     return (
         <>
-            <OwlCarousel className="owl-theme" {...options} loop margin={10}>
+            <OwlCarousel className="owl-theme" {...options}  margin={10}>
                 {children}
             </OwlCarousel>
         </>
