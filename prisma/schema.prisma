@@ -1,0 +1,70 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model list_menu {
+    id        Int      @id @default(autoincrement())
+    icons     String   @db.VarChar(255)
+    Name      String?
+    created_at DateTime 
+    updated_at DateTime 
+}
+
+model img_slide {
+  id Int @id @default(autoincrement())
+  img_url String?
+  name String?
+  link String?
+  created_at DateTime 
+  updated_at DateTime 
+}
+
+model list_sampah {
+    id Int @id @default(autoincrement())
+    img_url String?
+    name_trash String?
+    runtah_coin String?
+    created_at DateTime 
+    updated_at DateTime 
+}
+
+model Account {
+  id Int @id @default(autoincrement())
+  id_address Int?
+  name String?
+  username String?
+  email String?
+  password String?
+  avatar String?
+  telp String?
+  tanggal_lahir DateTime?
+  passwordAttempts Int @default(0)
+  statusAccount StatusAccount @default(Active)
+  Role RoleAccount @default(User)
+  type String?
+  created_at DateTime 
+  updated_at DateTime 
+}
+
+
+enum StatusAccount {
+  Active
+  Deactive
+}
+
+enum RoleAccount {
+  User
+  Driver
+  Admin
+}
