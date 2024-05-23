@@ -9,7 +9,6 @@ const MainMenu = () => {
     useEffect(() => {
         const getTrashMenu = async () => {
             const response = await HomeServices.getAllTrashMenu();
-            console.log(response.data.data);
             setListMenu(response.data.data);
         }
 
