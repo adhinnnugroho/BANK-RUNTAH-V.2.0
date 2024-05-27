@@ -9,7 +9,7 @@ Pastikan Anda memiliki Node.js dan npm terinstal di komputer Anda sebelum memula
 
 1. **Clone repositori ini**
    ```bash
-   git clone https://github.com/username/bank-runtah.git
+   git clone https://github.com/adhinnnugroho/BANK-RUNTAH.git
    cd bank-runtah
 2. *Install dependencies*
    ```bash
