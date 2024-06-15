@@ -1,14 +1,13 @@
 import Image from "next/image";
 import RuntahLogo from "@/Asset/img/logo/logo.png";
-import SimpleButton from "@/Template/Components/Button/SimpleButton";
-import { useSession } from "next-auth/react";
+import { faBell } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Navigations = () => {
-    const { data: session } = useSession();
-    const GetDataUser = session?.user[0];
+
     return (
-        <nav className="bg-gray-800 h-32">
-            <div className="mx-auto max-w-7xl px-2 py-2 sm:px-6 lg:px-8">
+        <nav className="bg-gray-800 h-44">
+            <div className="mx-auto ml-2 max-w-7xl px-2 py-2 sm:px-6 lg:px-8 pt-4">
                 <Image
                     src={RuntahLogo}
                     width={56}
@@ -17,20 +16,11 @@ const Navigations = () => {
                 />
 
                 <div className="float-right -mt-10">
-                    {!session ? (
-                        <SimpleButton type="button" className="-mt-10 mr-2" link={"/Auth/login"}>
-                            Login
-                        </SimpleButton>
-                    ) : (
-                        <h5 className="text-white">
-                            {GetDataUser?.name}
-                        </h5>
-                    )}
+                    <FontAwesomeIcon icon={faBell} className="text-white text-3xl mr-4" />
                 </div>
             </div>
         </nav>
     )
-
 }
 
 export default Navigations;

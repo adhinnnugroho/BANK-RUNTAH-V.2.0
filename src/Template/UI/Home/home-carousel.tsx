@@ -23,11 +23,11 @@ const HomeCarousel = () => {
             <ImageOwlCarousel>
                 {carouselImage && carouselImage.map((slide: any, index: number) => {
                     return (
-                        <div key={index} className="lg:ml-2 lg:w-auto">
+                        <div key={index} className="lg:ml-2 lg:w-44">
                             <div className="item">
                                 <Image className='rounded-lg'
                                     src={slide.img_url}
-                                    width={506}
+                                    width={500}
                                     height={106}
                                     alt={slide.name}
                                 />

@@ -7,23 +7,21 @@ const formattedNumber = (number: any) => {
 
 const RuntahCoin = () => {
     return (
-        <div className="bg-gray-300 ml-3 mr-3 -mt-10  rounded-lg">
+        <div className="bg-gray-200 drop-shadow-lg ml-3 mr-3 -mt-20  rounded-lg">
             <div className="grid grid-cols-3">
-                <div className="col-span-2 mb-5">
-                    <h5 className="ml-4 font-semibold pt-1 text-xl">
-                        Runtah Coin
+                <div className="col-span-2 mb-4 mt-4">
+                    <h5 className="ml-4 font-bold pt-1 text-2xl">
+                        Runtah Koin
                     </h5>
 
                     <h6 className="ml-4 font-semibold pb-2 text-3xl">
-                        {formattedNumber(10000)}
+                        RC. {formattedNumber(10000)}
                     </h6>
                 </div>
-                <div className="col-span-1">
-                    <div className="float-right mt-5 mr-5">
-                        <SimpleButton type="button" className="bg-green-800">
-                            Tukar
-                        </SimpleButton>
-                    </div>
+                <div className="col-span-1 ">
+                    <SimpleButton type="button" bg_color="bg-green-500" className="mt-10 w-24 mr-44">
+                        Tukar
+                    </SimpleButton>
                 </div>
             </div>
         </div>
