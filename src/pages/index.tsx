@@ -13,26 +13,15 @@ export default function Home() {
   return (
     <>
       <AppLayouts>
+        
         <RuntahCoin />
-        <div className="grid grid-cols-3 gap-5">
-          <div className="col-span-2">
-              <HomeCarousel />
-          </div>
-          <div className="col-span-1">
+        <HomeCarousel />
 
-          </div>
-        </div>
-
-
+        <MainMenu />
 
 
         {/* 
-        <MainMenu />
-        <ListTrash />
-
-        <div className="mb-20">
-          <HomeCarousel />
-        </div> */}
+        <ListTrash />*/}
       </AppLayouts>
     </>
   );
