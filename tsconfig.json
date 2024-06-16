@@ -16,7 +16,8 @@
       "@/*": ["./src/*"],
       "@/lib/*": ["./Core/Lib/*"],
       "@/Asset/*": ["./public/assets/*"],
-      "@/Icons/*": ["./public/assets/icons/*"]
+      "@/Icons/*": ["./public/assets/icons/*"],
+      "@/UI/*": ["./src/Template/UI/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
