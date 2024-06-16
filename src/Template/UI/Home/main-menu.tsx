@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 
 const MainMenu = () => {
-    const [list_menu, setListMenu] = useState([]);
+    const [listMenu, setListMenu] = useState([]);
 
     useEffect(() => {
         const getTrashMenu = async () => {
@@ -13,11 +13,11 @@ const MainMenu = () => {
         }
 
         getTrashMenu();
-    })
+    }, [])
 
     return (
         <div className="grid grid-cols-4 gap-5 ml-2 mr-2 mt-10">
-            {list_menu && list_menu.map((user: any, index: number) => {
+            {listMenu && listMenu.map((user: any, index: number) => {
                 return (
                     <div className="col-span-1" key={index}>
                         <MenuCard icons={user.icons} name={user.Name} />
