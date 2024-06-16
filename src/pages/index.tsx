@@ -1,13 +1,13 @@
-
 import AppLayouts from "@/Template/Layouts";
-import UIManajement from "@/Template/UI/UIManajement";
+import UIManagement from "@/Template/UI/UIManagement";
+
 export default function Home() {
   return (
       <AppLayouts>
-        <UIManajement.RuntahCoin />
-        <UIManajement.HomeCarousel />
-        <UIManajement.MainMenu />
-        <UIManajement.ListTrash />
+        <UIManagement.RuntahCoin />
+        <UIManagement.HomeCarousel />
+        <UIManagement.MainMenu />
+        <UIManagement.ListTrash />
       </AppLayouts>
   );
 }
