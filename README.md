@@ -1,11 +1,11 @@
-# Bank Runtah - Aplikasi Manajemen Bank Sampah
+# Bank Runtah - Waste Bank Management Application
 
-Bank Runtah adalah aplikasi manajemen bank sampah yang dibangun menggunakan Next.js. Aplikasi ini memungkinkan pengguna untuk melakukan manajemen setoran sampah, melacak transaksi, dan melihat riwayat pengumpulan sampah. Ini adalah versi yang saya rewrite ulang dari versi sebelumnya yang menggunakan CodeIgniter 4.
+Bank Runtah is a waste bank management application built using Next.js. This application allows users to manage waste deposits, track transactions, and view waste collection history. This version is a rewrite from the previous version that used CodeIgniter 4.
 
 
 ## Instalasi
 
-Pastikan Anda memiliki Node.js dan npm terinstal di komputer Anda sebelum memulai.
+Make sure you have Node.js and npm installed on your computer before starting.
 
 1. **Clone repositori ini**
    ```bash
@@ -16,7 +16,7 @@ Pastikan Anda memiliki Node.js dan npm terinstal di komputer Anda sebelum memula
    npm install
 
 ## Menjalankan Aplikasi
-Untuk menjalankan aplikasi di lingkungan pengembangan, ikuti langkah-langkah berikut:
+To run the application in a development environment, follow these steps:
 
 1. *Jalankan server pengembangan*
    ```bash
