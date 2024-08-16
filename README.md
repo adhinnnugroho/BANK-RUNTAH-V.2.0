@@ -3,7 +3,8 @@
 Bank Runtah is a waste bank management application built using Next.js. This application allows users to manage waste deposits, track transactions, and view waste collection history. This version is a rewrite from the previous version that used CodeIgniter 4.
 
 
-⚠️ Project Status
+
+# ⚠️ Project Status
 Note: This application is currently under development and is not yet 100% complete. Some features may be missing or incomplete. Contributions and feedback are welcome as the project continues to evolve.
 
 ## Instalasi
