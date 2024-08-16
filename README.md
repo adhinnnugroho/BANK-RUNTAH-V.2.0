@@ -15,13 +15,13 @@ Make sure you have Node.js and npm installed on your computer before starting.
    ```bash
    npm install
 
-## Menjalankan Aplikasi
+## Running the Application
 To run the application in a development environment, follow these steps:
 
-1. *Jalankan server pengembangan*
+1. *Start the development server:*
    ```bash
    npm run dev 
-2. *Buka browser dan akses aplikasi*
+2. *Open your browser and access the application:*
    ```bash
    Aplikasi akan berjalan di http://localhost:3000.
 
