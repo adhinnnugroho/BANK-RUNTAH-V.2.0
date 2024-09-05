@@ -25,5 +25,5 @@ To run the application in a development environment, follow these steps:
    npm run dev 
 2. *Open your browser and access the application:*
    ```bash
-   Aplikasi akan berjalan di http://localhost:3000.
+   http://localhost:3000.
 
